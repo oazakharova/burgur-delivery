@@ -158,6 +158,37 @@ body {
     margin-bottom: 100px;
   }
 
+  .buttonsWrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .filterButton {
+    background: none;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 3px 15px;
+    margin: 5px;
+    color: $colorLight;
+    font-family: $fontMainLexendZetta;
+    letter-spacing: 0;
+    border: 1px solid $colorLight;
+    border-radius: 3px;
+    transition-duration: 0.5s;
+
+    @media (min-width: 768px) {
+      margin: 10px 20px;
+    }
+  }
+
+  .filterButton:hover {
+    transform: scale(1.1, 1.1);
+  }
+
   .menuItemsWrap {
     display: grid;
     gap: 30px;

@@ -158,6 +158,35 @@ body {
   font-size: 20px;
   margin-bottom: 100px;
 }
+.main .buttonsWrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.main .filterButton {
+  background: none;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 3px 15px;
+  margin: 5px;
+  color: #fbfada;
+  font-family: "Lexend Zetta", sans-serif;
+  letter-spacing: 0;
+  border: 1px solid #fbfada;
+  border-radius: 3px;
+  transition-duration: 0.5s;
+}
+@media (min-width: 768px) {
+  .main .filterButton {
+    margin: 10px 20px;
+  }
+}
+.main .filterButton:hover {
+  transform: scale(1.1, 1.1);
+}
 .main .menuItemsWrap {
   display: grid;
   gap: 30px;
