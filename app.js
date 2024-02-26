@@ -103,11 +103,11 @@ const menu = [
 const menuItemsWrap = document.querySelector(".menuItemsWrap");
 
 window.addEventListener("DOMContentLoaded", () => {
-  displayNemu();
+  displayNemu(menu);
 });
 
-const displayNemu = (item) => {
-  let displayMenu = menu.map((item) => {
+const displayNemu = (menuItems) => {
+  let displayMenu = menuItems.map((item) => {
     return `<article class="menuItem">
     <img class="photo" src=${item.img} alt=${item.title}>
     <div class="itemInfo">
