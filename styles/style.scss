@@ -189,6 +189,11 @@ body {
     transform: scale(1.1, 1.1);
   }
 
+  .selectedFilterButton {
+    background-color: $colorLight;
+    color: $backgroundMainColor;
+  }
+
   .menuItemsWrap {
     display: grid;
     gap: 30px;
@@ -209,21 +214,18 @@ body {
     flex-direction: column;
     align-items: center;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1200px) {
       flex-direction: row;
       align-items: flex-start;
     }
 
     .photo {
       display: block;
-      width: 40%;
+      width: 150px;
       height: 150px;
       border: 5px solid $colorLightGreen;
       border-radius: 3px;
-
-      @media (min-width: 768px) {
-        width: 20%;
-      }
+      object-fit: cover;
     }
 
     .itemInfo {
@@ -237,7 +239,7 @@ body {
         justify-content: space-between;
         margin: 15px auto;
 
-        @media (min-width: 768px) {
+        @media (min-width: 1200px) {
           margin-top: 0;
           flex-direction: row;
           align-items: flex-start;
@@ -253,7 +255,7 @@ body {
         font-weight: 400;
         text-align: center;
 
-        @media (min-width: 768px) {
+        @media (min-width: 1200px) {
           text-align: start;
         }
       }

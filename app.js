@@ -159,6 +159,18 @@ const displayMenuButtons = () => {
       } else {
         displayMenu(menuCategory);
       }
+      e.currentTarget.classList.add("selectedFilterButton");
+    });
+  });
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      e.currentTarget.classList.add("selectedFilterButton");
+      filterButtons.forEach((element) => {
+        if (element !== e.currentTarget) {
+          element.classList.remove("selectedFilterButton");
+        }
+      });
     });
   });
 };

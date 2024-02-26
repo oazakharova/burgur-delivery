@@ -187,6 +187,10 @@ body {
 .main .filterButton:hover {
   transform: scale(1.1, 1.1);
 }
+.main .selectedFilterButton {
+  background-color: #fbfada;
+  color: #12372a;
+}
 .main .menuItemsWrap {
   display: grid;
   gap: 30px;
@@ -208,7 +212,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .main .menuItem {
     flex-direction: row;
     align-items: flex-start;
@@ -216,15 +220,11 @@ body {
 }
 .main .menuItem .photo {
   display: block;
-  width: 40%;
+  width: 150px;
   height: 150px;
   border: 5px solid #adbc9f;
   border-radius: 3px;
-}
-@media (min-width: 768px) {
-  .main .menuItem .photo {
-    width: 20%;
-  }
+  object-fit: cover;
 }
 .main .menuItem .itemInfo {
   width: 80%;
@@ -237,7 +237,7 @@ body {
   justify-content: space-between;
   margin: 15px auto;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .main .menuItem .itemInfo header {
     margin-top: 0;
     flex-direction: row;
@@ -252,7 +252,7 @@ body {
   font-weight: 400;
   text-align: center;
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   .main .menuItem .itemInfo .itemText {
     text-align: start;
   }
