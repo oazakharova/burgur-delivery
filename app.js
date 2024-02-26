@@ -100,26 +100,11 @@ const menu = [
 ];
 
 const menuItemsWrap = document.querySelector(".menuItemsWrap");
-const filterButtons = document.querySelectorAll(".filterButton");
+const buttonsWrap = document.querySelector(".buttonsWrap");
 
 window.addEventListener("DOMContentLoaded", () => {
   displayMenu(menu);
-});
-
-filterButtons.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    const category = e.currentTarget.dataset.id;
-    const menuCategory = menu.filter((menuItem) => {
-      if (menuItem.category === category) {
-        return menuItem;
-      }
-    });
-    if (category === "all") {
-      displayMenu(menu);
-    } else {
-      displayMenu(menuCategory);
-    }
-  });
+  displayMenuButtons();
 });
 
 const displayMenu = (menuItems) => {
@@ -137,4 +122,43 @@ const displayMenu = (menuItems) => {
   });
   displayMenu = displayMenu.join(""); // because of "" do not get "," between articles
   menuItemsWrap.innerHTML = displayMenu;
+};
+
+const displayMenuButtons = () => {
+  // const categories = menu.map((item) => item.category); // to get all categories
+  // to get unique categories:
+  const categories = menu.reduce(
+    (values, item) => {
+      if (!values.includes(item.category)) {
+        values.push(item.category);
+      }
+      return values;
+    },
+    ["all"]
+  );
+  const categoryButtons = categories
+    .map((category) => {
+      return `<button class="filterButton" type="button" data-id=${category}>
+      ${category}
+      </button>`;
+    })
+    .join("");
+  buttonsWrap.innerHTML = categoryButtons;
+
+  const filterButtons = document.querySelectorAll(".filterButton");
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const category = e.currentTarget.dataset.id;
+      const menuCategory = menu.filter((menuItem) => {
+        if (menuItem.category === category) {
+          return menuItem;
+        }
+      });
+      if (category === "all") {
+        displayMenu(menu);
+      } else {
+        displayMenu(menuCategory);
+      }
+    });
+  });
 };
