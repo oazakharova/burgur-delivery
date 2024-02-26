@@ -52,11 +52,11 @@ body {
       letter-spacing: 0;
       font-size: 25px;
 
-      @media (min-width: 767px) {
+      @media (min-width: 768px) {
         font-size: 50px;
       }
 
-      @media (min-width: 767px) {
+      @media (min-width: 768px) {
         margin-bottom: 30px;
       }
 
@@ -74,7 +74,7 @@ body {
       font-size: 12px;
       text-decoration: none;
 
-      @media (min-width: 767px) {
+      @media (min-width: 768px) {
         font-size: 25px;
       }
     }
@@ -120,7 +120,7 @@ body {
       color: $colorLightGreen;
       font-size: 20px;
 
-      @media (min-width: 767px) {
+      @media (min-width: 768px) {
         font-size: 40px;
       }
 
@@ -133,7 +133,7 @@ body {
       color: $colorLightGreen;
       font-size: 10px;
 
-      @media (min-width: 767px) {
+      @media (min-width: 768px) {
         font-size: 20px;
       }
     }
@@ -143,6 +143,131 @@ body {
       width: 100%;
     }
   }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $colorLight;
+    text-transform: uppercase;
+    font-family: $fontMainLexendZetta;
+    font-weight: 700;
+    letter-spacing: 0;
+    font-size: 20px;
+    margin-bottom: 100px;
+  }
+
+  .buttonsWrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .filterButton {
+    background: none;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 3px 15px;
+    margin: 5px;
+    color: $colorLight;
+    font-family: $fontMainLexendZetta;
+    letter-spacing: 0;
+    border: 1px solid $colorLight;
+    border-radius: 3px;
+    transition-duration: 0.5s;
+
+    @media (min-width: 768px) {
+      margin: 10px 20px;
+    }
+  }
+
+  .filterButton:hover {
+    transform: scale(1.1, 1.1);
+  }
+
+  .selectedFilterButton {
+    background-color: $colorLight;
+    color: $backgroundMainColor;
+  }
+
+  .menuItemsWrap {
+    display: grid;
+    gap: 30px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    @media (min-width: 1600px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 50px;
+    }
+  }
+
+  .menuItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: 1200px) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    .photo {
+      display: block;
+      width: 150px;
+      height: 150px;
+      border: 5px solid $colorLightGreen;
+      border-radius: 3px;
+      object-fit: cover;
+    }
+
+    .itemInfo {
+      width: 80%;
+      padding-left: 15px;
+
+      header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin: 15px auto;
+
+        @media (min-width: 1200px) {
+          margin-top: 0;
+          flex-direction: row;
+          align-items: flex-start;
+        }
+
+        .price {
+          color: $colorWhite;
+        }
+      }
+
+      .itemText {
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
+
+        @media (min-width: 1200px) {
+          text-align: start;
+        }
+      }
+    }
+  }
+}
+
+.underline {
+  width: 20%;
+  height: 3px;
+  background-color: $colorLightGreen;
+  margin: 20px auto 50px;
 }
 
 .footer {
