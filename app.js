@@ -99,21 +99,83 @@ const menu = [
   },
 ];
 
+const ourTeam = [
+  {
+    id: 1,
+    fullName: "samantha smith",
+    job: "the chef",
+    img: "./images/portrait-beautiful-young-woman-standing-grey-wall.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam provident laboriosam dolorem sunt dolor",
+  },
+  {
+    id: 2,
+    fullName: "bill anderson",
+    job: "sous chef",
+    img: "./images/portrait-beautiful-mature-blonde-bearded-guy-with-trendy-hairdo-casual-grey-shirt-smiling.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam provident laboriosam dolorem sunt dolor",
+  },
+  {
+    id: 3,
+    fullName: "anna johnson",
+    job: "administrator",
+    img: "./images/pretty-smiling-joyfully-female-with-fair-hair-dressed-casually-looking-with-satisfaction.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam provident laboriosam dolorem sunt dolor",
+  },
+  {
+    id: 4,
+    fullName: "susan terner",
+    job: "waiter",
+    img: "./images/indoor-portrait-stylish-teenag-girl-with-freckles-red-hair-bun-looking-camera-with-cheerful-smile.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam provident laboriosam dolorem sunt dolor",
+  },
+  {
+    id: 5,
+    fullName: "alex rodridez",
+    job: "waiter",
+    img: "./images/confident-bearded-macho-man-looks-pleased-has-friendly-kind-grin-face-wears-round-spectacles-pink-jumper.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam provident laboriosam dolorem sunt dolor",
+  },
+  {
+    id: 6,
+    fullName: "carmen rodridez",
+    job: "barista",
+    img: "./images/lifestyle-people-emotions-casual-concept-confident-nice-smiling-asian-woman-cross-arms-chest-confident-ready-help-listening-coworkers-taking-part-conversation.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam provident laboriosam dolorem sunt dolor",
+  },
+];
+
+// menu variables
 const menuItemsWrap = document.querySelector(".menuItemsWrap");
 const buttonsWrap = document.querySelector(".buttonsWrap");
 
+// team variables
+const img = document.querySelector(".ourTeamImg");
+const author = document.querySelector(".ourTeamUserName");
+const job = document.querySelector(".ourTeamJob");
+const info = document.querySelector(".ourTeamDesc");
+
+const prevBtn = document.querySelector(".prevBtn");
+const nextBtn = document.querySelector(".nextBtn");
+
+let currentTeamItem = 0;
+
 window.addEventListener("DOMContentLoaded", () => {
+  // menu
   displayMenu(menu);
   displayMenuButtons();
+
+  // team
+  showEmployee();
 });
 
+// menu functions
 const displayMenu = (menuItems) => {
   let displayMenu = menuItems.map((item) => {
     return `<article class="menuItem">
     <img class="photo" src=${item.img} alt=${item.title}>
     <div class="itemInfo">
       <header>
-        <h4>${item.title}</h4>
+        <h4 class="itemTitle">${item.title}</h4>
         <h4 class="price">$${item.price}</h4>
       </header>
       <p class="itemText">${item.desc}</p>
@@ -174,3 +236,28 @@ const displayMenuButtons = () => {
     });
   });
 };
+
+// team functions
+const showEmployee = () => {
+  const itemTeam = ourTeam[currentTeamItem];
+  img.src = itemTeam.img;
+  author.textContent = itemTeam.fullName;
+  job.textContent = itemTeam.job;
+  info.textContent = itemTeam.text;
+};
+
+nextBtn.addEventListener("click", () => {
+  currentTeamItem++;
+  if (currentTeamItem > ourTeam.length - 1) {
+    currentTeamItem = 0;
+  }
+  showEmployee();
+});
+
+prevBtn.addEventListener("click", () => {
+  currentTeamItem--;
+  if (currentTeamItem < 0) {
+    currentTeamItem = ourTeam.length - 1;
+  }
+  showEmployee();
+});

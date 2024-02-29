@@ -66,6 +66,11 @@ body {
     margin-bottom: 0;
   }
 }
+.header .container .nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .header .container .anchor {
   padding: 5px;
   font-family: "Lexend Zetta", sans-serif;
@@ -79,6 +84,9 @@ body {
   .header .container .anchor {
     font-size: 25px;
   }
+}
+.header .container .anchor:not(:last-child) {
+  margin-right: 15px;
 }
 
 .main .container .sloganWrap {
@@ -144,6 +152,11 @@ body {
 .main .container .sloganWrap .burgerImg {
   display: block;
   width: 100%;
+}
+@media (min-width: 768px) {
+  .main .container .sloganWrap .burgerImg {
+    max-width: 1000px;
+  }
 }
 .main .section {
   display: flex;
@@ -228,7 +241,6 @@ body {
 }
 .main .menuItem .itemInfo {
   width: 80%;
-  padding-left: 15px;
 }
 .main .menuItem .itemInfo header {
   display: flex;
@@ -239,9 +251,15 @@ body {
 }
 @media (min-width: 1200px) {
   .main .menuItem .itemInfo header {
+    padding-left: 15px;
     margin-top: 0;
     flex-direction: row;
     align-items: flex-start;
+  }
+}
+@media (max-width: 1199px) {
+  .main .menuItem .itemInfo header .itemTitle {
+    text-align: center;
   }
 }
 .main .menuItem .itemInfo header .price {
@@ -263,6 +281,77 @@ body {
   height: 3px;
   background-color: #adbc9f;
   margin: 20px auto 50px;
+}
+
+.ourTeamItemsWrap {
+  background-color: #a0b290;
+  padding: 5px;
+  box-shadow: 0px 0px 15px 1px #adbc9f;
+}
+.ourTeamItemsWrap .ourTeamItem {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 280px;
+  height: 500px;
+}
+@media (min-width: 768px) {
+  .ourTeamItemsWrap .ourTeamItem {
+    width: 500px;
+  }
+}
+@media (min-width: 1600px) {
+  .ourTeamItemsWrap .ourTeamItem {
+    width: 800px;
+  }
+}
+.ourTeamItemsWrap .ourTeamImgWrap {
+  background: #153f30;
+  border-radius: 100% 70% 95% 65%;
+  margin-top: 20px;
+}
+.ourTeamItemsWrap .ourTeamImg {
+  display: block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 20px auto;
+}
+.ourTeamItemsWrap .ourTeamUserName {
+  color: #12372a;
+  margin: 5px auto;
+  text-align: center;
+}
+.ourTeamItemsWrap .ourTeamJob {
+  margin-bottom: 15px;
+  text-align: center;
+}
+.ourTeamItemsWrap .ourTeamDesc {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 12px;
+  text-align: center;
+  margin: 5px auto;
+}
+@media (min-width: 768px) {
+  .ourTeamItemsWrap .ourTeamDesc {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1600px) {
+  .ourTeamItemsWrap .ourTeamDesc {
+    font-size: 18px;
+  }
+}
+.ourTeamItemsWrap .prevBtn,
+.ourTeamItemsWrap .nextBtn {
+  background: none;
+  border: none;
+  color: #12372a;
+  font-size: 26px;
+  padding: 10px;
 }
 
 .footer .container {
