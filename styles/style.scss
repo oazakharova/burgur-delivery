@@ -65,6 +65,12 @@ body {
       }
     }
 
+    .nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .anchor {
       padding: 5px;
       font-family: $fontMainLexendZetta;
@@ -77,6 +83,10 @@ body {
       @media (min-width: 768px) {
         font-size: 25px;
       }
+    }
+
+    .anchor:not(:last-child) {
+      margin-right: 15px;
     }
   }
 }
@@ -141,6 +151,10 @@ body {
     .burgerImg {
       display: block;
       width: 100%;
+
+      @media (min-width: 768px) {
+        max-width: 1000px;
+      }
     }
   }
 
@@ -156,6 +170,10 @@ body {
     letter-spacing: 0;
     font-size: 20px;
     margin-bottom: 100px;
+
+    h2 {
+      text-align: center;
+    }
   }
 
   .buttonsWrap {
@@ -230,7 +248,6 @@ body {
 
     .itemInfo {
       width: 80%;
-      padding-left: 15px;
 
       header {
         display: flex;
@@ -240,9 +257,16 @@ body {
         margin: 15px auto;
 
         @media (min-width: 1200px) {
+          padding-left: 15px;
           margin-top: 0;
           flex-direction: row;
           align-items: flex-start;
+        }
+
+        .itemTitle {
+          @media (max-width: 1199px) {
+            text-align: center;
+          }
         }
 
         .price {
@@ -268,6 +292,181 @@ body {
   height: 3px;
   background-color: $colorLightGreen;
   margin: 20px auto 50px;
+}
+
+.ourTeamItemsWrap {
+  background-color: darken($color: $colorLightGreen, $amount: 5%);
+  padding: 5px;
+  box-shadow: 0px 0px 15px 1px $colorLightGreen;
+
+  .ourTeamItem {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 280px;
+    height: 500px;
+
+    @media (min-width: 768px) {
+      width: 500px;
+    }
+
+    @media (min-width: 1600px) {
+      width: 800px;
+    }
+  }
+
+  .ourTeamImgWrap {
+    background: lighten($color: $backgroundMainColor, $amount: 2%);
+    border-radius: 100% 70% 95% 65%;
+    margin-top: 20px;
+  }
+
+  .ourTeamImg {
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 20px auto;
+  }
+
+  .ourTeamUserName {
+    color: $backgroundMainColor;
+    margin: 5px auto;
+    text-align: center;
+  }
+
+  .ourTeamJob {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .ourTeamDesc {
+    color: $colorWhite;
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
+    margin: 5px auto;
+
+    @media (min-width: 768px) {
+      font-size: 16px;
+    }
+
+    @media (min-width: 1600px) {
+      font-size: 18px;
+    }
+  }
+
+  .prevBtn,
+  .nextBtn {
+    background: none;
+    border: none;
+    color: $backgroundMainColor;
+    font-size: 26px;
+    padding: 10px;
+  }
+}
+
+.ourRestaurantSection {
+  position: relative;
+
+  .ourRestaurantSliderWrap {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    border: 5px solid $colorLightGreen;
+    border-radius: 3px;
+
+    @media (min-width: 768px) {
+      height: 500px;
+    }
+
+    @media (min-width: 1600px) {
+      height: 800px;
+    }
+
+    @media (min-width: 2000px) {
+      height: 1200px;
+    }
+
+    .slide {
+      display: grid;
+      place-items: center;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      display: grid;
+      place-items: center;
+      transition: all 0.25s ease-in-out;
+      text-align: center;
+    }
+
+    /*.slide:nth-child(1) {
+      left: 0;
+    }
+    .slide:nth-child(2) {
+      left: 100%;
+    }
+    .slide:nth-child(2) {
+      left: 200%;
+    }
+    .slide {
+      transform: translateX(-300%);
+    }*/
+
+    .slideImg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .title {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+    }
+  }
+
+  .ourRestaurantButtonContainer {
+    width: 100%;
+    position: absolute;
+    top: 55%;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 900;
+  }
+
+  .prevBtn,
+  .nextBtn {
+    background: none;
+    border: 2px solid $backgroundMainColor;
+    border-radius: 5px;
+    color: $backgroundMainColor;
+    padding: 5px 10px;
+    margin: 50px;
+    transition-duration: 0.5s;
+
+    i {
+      font-size: 26px;
+
+      @media (min-width: 768px) {
+        font-size: 36px;
+      }
+
+      @media (min-width: 1600px) {
+        font-size: 56px;
+      }
+    }
+  }
+
+  .prevBtn:hover,
+  .nextBtn:hover {
+    transform: scale(1.2, 1.2);
+  }
 }
 
 .footer {

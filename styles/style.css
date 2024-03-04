@@ -66,6 +66,11 @@ body {
     margin-bottom: 0;
   }
 }
+.header .container .nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .header .container .anchor {
   padding: 5px;
   font-family: "Lexend Zetta", sans-serif;
@@ -79,6 +84,9 @@ body {
   .header .container .anchor {
     font-size: 25px;
   }
+}
+.header .container .anchor:not(:last-child) {
+  margin-right: 15px;
 }
 
 .main .container .sloganWrap {
@@ -145,6 +153,11 @@ body {
   display: block;
   width: 100%;
 }
+@media (min-width: 768px) {
+  .main .container .sloganWrap .burgerImg {
+    max-width: 1000px;
+  }
+}
 .main .section {
   display: flex;
   flex-direction: column;
@@ -157,6 +170,9 @@ body {
   letter-spacing: 0;
   font-size: 20px;
   margin-bottom: 100px;
+}
+.main .section h2 {
+  text-align: center;
 }
 .main .buttonsWrap {
   display: flex;
@@ -228,7 +244,6 @@ body {
 }
 .main .menuItem .itemInfo {
   width: 80%;
-  padding-left: 15px;
 }
 .main .menuItem .itemInfo header {
   display: flex;
@@ -239,9 +254,15 @@ body {
 }
 @media (min-width: 1200px) {
   .main .menuItem .itemInfo header {
+    padding-left: 15px;
     margin-top: 0;
     flex-direction: row;
     align-items: flex-start;
+  }
+}
+@media (max-width: 1199px) {
+  .main .menuItem .itemInfo header .itemTitle {
+    text-align: center;
   }
 }
 .main .menuItem .itemInfo header .price {
@@ -263,6 +284,177 @@ body {
   height: 3px;
   background-color: #adbc9f;
   margin: 20px auto 50px;
+}
+
+.ourTeamItemsWrap {
+  background-color: #a0b290;
+  padding: 5px;
+  box-shadow: 0px 0px 15px 1px #adbc9f;
+}
+.ourTeamItemsWrap .ourTeamItem {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 280px;
+  height: 500px;
+}
+@media (min-width: 768px) {
+  .ourTeamItemsWrap .ourTeamItem {
+    width: 500px;
+  }
+}
+@media (min-width: 1600px) {
+  .ourTeamItemsWrap .ourTeamItem {
+    width: 800px;
+  }
+}
+.ourTeamItemsWrap .ourTeamImgWrap {
+  background: #153f30;
+  border-radius: 100% 70% 95% 65%;
+  margin-top: 20px;
+}
+.ourTeamItemsWrap .ourTeamImg {
+  display: block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 20px auto;
+}
+.ourTeamItemsWrap .ourTeamUserName {
+  color: #12372a;
+  margin: 5px auto;
+  text-align: center;
+}
+.ourTeamItemsWrap .ourTeamJob {
+  margin-bottom: 15px;
+  text-align: center;
+}
+.ourTeamItemsWrap .ourTeamDesc {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 12px;
+  text-align: center;
+  margin: 5px auto;
+}
+@media (min-width: 768px) {
+  .ourTeamItemsWrap .ourTeamDesc {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1600px) {
+  .ourTeamItemsWrap .ourTeamDesc {
+    font-size: 18px;
+  }
+}
+.ourTeamItemsWrap .prevBtn,
+.ourTeamItemsWrap .nextBtn {
+  background: none;
+  border: none;
+  color: #12372a;
+  font-size: 26px;
+  padding: 10px;
+}
+
+.ourRestaurantSection {
+  position: relative;
+}
+.ourRestaurantSection .ourRestaurantSliderWrap {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  border: 5px solid #adbc9f;
+  border-radius: 3px;
+  /*.slide:nth-child(1) {
+    left: 0;
+  }
+  .slide:nth-child(2) {
+    left: 100%;
+  }
+  .slide:nth-child(2) {
+    left: 200%;
+  }
+  .slide {
+    transform: translateX(-300%);
+  }*/
+}
+@media (min-width: 768px) {
+  .ourRestaurantSection .ourRestaurantSliderWrap {
+    height: 500px;
+  }
+}
+@media (min-width: 1600px) {
+  .ourRestaurantSection .ourRestaurantSliderWrap {
+    height: 800px;
+  }
+}
+@media (min-width: 2000px) {
+  .ourRestaurantSection .ourRestaurantSliderWrap {
+    height: 1200px;
+  }
+}
+.ourRestaurantSection .ourRestaurantSliderWrap .slide {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: grid;
+  place-items: center;
+  transition: all 0.25s ease-in-out;
+  text-align: center;
+}
+.ourRestaurantSection .ourRestaurantSliderWrap .slideImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+.ourRestaurantSection .ourRestaurantSliderWrap .title {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+}
+.ourRestaurantSection .ourRestaurantButtonContainer {
+  width: 100%;
+  position: absolute;
+  top: 55%;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 900;
+}
+.ourRestaurantSection .prevBtn,
+.ourRestaurantSection .nextBtn {
+  background: none;
+  border: 2px solid #12372a;
+  border-radius: 5px;
+  color: #12372a;
+  padding: 5px 10px;
+  margin: 50px;
+  transition-duration: 0.5s;
+}
+.ourRestaurantSection .prevBtn i,
+.ourRestaurantSection .nextBtn i {
+  font-size: 26px;
+}
+@media (min-width: 768px) {
+  .ourRestaurantSection .prevBtn i,
+  .ourRestaurantSection .nextBtn i {
+    font-size: 36px;
+  }
+}
+@media (min-width: 1600px) {
+  .ourRestaurantSection .prevBtn i,
+  .ourRestaurantSection .nextBtn i {
+    font-size: 56px;
+  }
+}
+.ourRestaurantSection .prevBtn:hover,
+.ourRestaurantSection .nextBtn:hover {
+  transform: scale(1.2, 1.2);
 }
 
 .footer .container {
