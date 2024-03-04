@@ -276,6 +276,7 @@ body {
 @media (min-width: 1200px) {
   .main .menuItem .itemInfo .itemText {
     text-align: start;
+    padding-left: 15px;
   }
 }
 
