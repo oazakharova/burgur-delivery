@@ -149,16 +149,29 @@ const menuItemsWrap = document.querySelector(".menuItemsWrap");
 const buttonsWrap = document.querySelector(".buttonsWrap");
 
 // team variables
-const img = document.querySelector(".ourTeamImg");
-const author = document.querySelector(".ourTeamUserName");
-const job = document.querySelector(".ourTeamJob");
-const info = document.querySelector(".ourTeamDesc");
+const ourTeamSection = document.querySelector(".ourTeamSection");
+const img = ourTeamSection.querySelector(".ourTeamImg");
+const author = ourTeamSection.querySelector(".ourTeamUserName");
+const job = ourTeamSection.querySelector(".ourTeamJob");
+const info = ourTeamSection.querySelector(".ourTeamDesc");
 
-const prevBtn = document.querySelector(".prevBtn");
-const nextBtn = document.querySelector(".nextBtn");
+const prevBtn = ourTeamSection.querySelector(".prevBtn");
+const nextBtn = ourTeamSection.querySelector(".nextBtn");
 
 let currentTeamItem = 0;
 
+// slider variables
+const slides = document.querySelectorAll(".slide");
+const prevBtnInSlider = document
+  .querySelector(".ourRestaurantSection")
+  .querySelector(".prevBtn");
+const nextBtnInSlider = document
+  .querySelector(".ourRestaurantSection")
+  .querySelector(".nextBtn");
+
+let counterInSlider = 0;
+
+//  DOMContentLoaded
 window.addEventListener("DOMContentLoaded", () => {
   // menu
   displayMenu(menu);
@@ -166,6 +179,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // team
   showEmployee();
+
+  // slider
+  slides.forEach(function (slide, index) {
+    slide.style.left = `${index * 100}%`;
+  });
+
+  nextBtnInSlider.addEventListener("click", () => {
+    counterInSlider++;
+    carousel();
+  });
+  prevBtnInSlider.addEventListener("click", () => {
+    counterInSlider--;
+    carousel();
+  });
 });
 
 // menu functions
@@ -261,3 +288,13 @@ prevBtn.addEventListener("click", () => {
   }
   showEmployee();
 });
+
+// slider functions
+function carousel() {
+  if (counterInSlider === slides.length) counterInSlider = 0;
+  if (counterInSlider < 0) counterInSlider = slides.length - 1;
+
+  slides.forEach((slide) => {
+    slide.style.transform = `translateX(-${counterInSlider * 100}%)`;
+  });
+}
