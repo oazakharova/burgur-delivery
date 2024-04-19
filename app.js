@@ -168,6 +168,8 @@ const prevBtnInSlider = document
 const nextBtnInSlider = document
   .querySelector(".ourRestaurantSection")
   .querySelector(".nextBtn");
+const sliderNav = document.querySelector(".slider-nav");
+const navPoints = sliderNav.querySelectorAll("i");
 
 let counterInSlider = 0;
 
@@ -192,6 +194,30 @@ window.addEventListener("DOMContentLoaded", () => {
   prevBtnInSlider.addEventListener("click", () => {
     counterInSlider--;
     carousel();
+  });
+
+  navPoints.forEach((navPoint, index) => {
+    navPoint.addEventListener("click", () => {
+      counterInSlider = index;
+
+      if (!navPoint.classList.contains("fa-solid")) {
+        navPoint.classList.add("fa-solid");
+
+        if (navPoint.classList.contains("fa-regular")) {
+          navPoint.classList.remove("fa-regular");
+        }
+      }
+
+      navPoints.forEach((btn) => {
+        if (btn !== navPoint) {
+          btn.className = "";
+          btn.classList.add("fa-circle");
+          btn.classList.add("fa-regular");
+        }
+      });
+
+      carousel();
+    });
   });
 });
 
@@ -290,6 +316,7 @@ prevBtn.addEventListener("click", () => {
 });
 
 // slider functions
+// buttons prev and next in slider
 function carousel() {
   if (counterInSlider === slides.length) counterInSlider = 0;
   if (counterInSlider < 0) counterInSlider = slides.length - 1;

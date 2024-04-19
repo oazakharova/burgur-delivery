@@ -429,6 +429,7 @@ body {
       position: absolute;
       bottom: 10%;
       left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 
@@ -467,6 +468,14 @@ body {
   .prevBtn:hover,
   .nextBtn:hover {
     transform: scale(1.2, 1.2);
+  }
+}
+
+.slider-nav {
+  margin-top: 20px;
+
+  i {
+    font-size: 16px;
   }
 }
 
