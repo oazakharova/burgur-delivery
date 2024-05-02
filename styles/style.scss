@@ -29,6 +29,8 @@ body {
 }
 
 .header {
+  height: 20vh;
+
   .container {
     display: flex;
     flex-direction: column;
@@ -95,10 +97,10 @@ body {
   .container .sloganWrap {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    margin-bottom: 200px;
+    height: 80vh;
 
     @media (min-width: 1600px) {
       flex-direction: row;
