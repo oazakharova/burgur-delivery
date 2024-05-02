@@ -262,6 +262,10 @@ const displayMenuButtons = () => {
 
   const filterButtons = document.querySelectorAll(".filterButton");
   filterButtons.forEach((button) => {
+    if (button.dataset.id === "all") {
+      button.classList.add("selectedFilterButton");
+    }
+
     button.addEventListener("click", (e) => {
       const category = e.currentTarget.dataset.id;
       const menuCategory = menu.filter((menuItem) => {
@@ -269,10 +273,20 @@ const displayMenuButtons = () => {
           return menuItem;
         }
       });
+
       if (category === "all") {
         displayMenu(menu);
       } else {
         displayMenu(menuCategory);
+
+        filterButtons.forEach((btn) => {
+          if (
+            btn !== button &&
+            btn.classList.contains("selectedFilterButton")
+          ) {
+            btn.classList.remove("selectedFilterButton");
+          }
+        });
       }
       e.currentTarget.classList.add("selectedFilterButton");
     });
