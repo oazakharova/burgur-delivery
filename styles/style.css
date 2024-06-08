@@ -141,7 +141,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px; }
+  margin-bottom: 20px; }
 .main .filterButton {
   background: none;
   font-size: 16px;
@@ -162,6 +162,12 @@ body {
 .main .selectedFilterButton {
   background-color: #fbfada;
   color: #12372a; }
+.main .sortWrap {
+  margin-bottom: 50px; }
+  .main .sortWrap i {
+    font-weight: 600; }
+  .main .sortWrap span {
+    margin-right: 5px; }
 .main .menuItemsWrap {
   display: grid;
   gap: 30px; }

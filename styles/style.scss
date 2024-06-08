@@ -184,7 +184,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
 
   .filterButton {
@@ -212,6 +212,17 @@ body {
   .selectedFilterButton {
     background-color: $colorLight;
     color: $backgroundMainColor;
+  }
+
+  .sortWrap {
+    margin-bottom: 50px;
+
+    i {
+      font-weight: 600;
+    }
+    span {
+      margin-right: 5px;
+    }
   }
 
   .menuItemsWrap {

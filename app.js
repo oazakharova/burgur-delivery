@@ -289,6 +289,7 @@ const displayMenuButtons = () => {
         });
       }
       e.currentTarget.classList.add("selectedFilterButton");
+      return menu;
     });
   });
 
@@ -303,6 +304,24 @@ const displayMenuButtons = () => {
     });
   });
 };
+
+//sort filter buttons
+const lowToHighPriceButtonEl = document.querySelector(".lowToHighPriceButton");
+lowToHighPriceButtonEl.addEventListener("click", (e) => {
+  const unsortedMenu = 1; // тут нужно получать неотсортированное, но отфильтрованное меню
+  const sortedMenu = menu.sort((a, b) => a.price - b.price);
+  displayMenu(sortedMenu);
+  e.currentTarget.classList.add("selectedFilterButton");
+  highToLowPriceButtonEl.classList.remove("selectedFilterButton");
+});
+
+const highToLowPriceButtonEl = document.querySelector(".highToLowPriceButton");
+highToLowPriceButtonEl.addEventListener("click", (e) => {
+  const sortedMenu = menu.sort((a, b) => b.price - a.price);
+  displayMenu(sortedMenu);
+  e.currentTarget.classList.add("selectedFilterButton");
+  lowToHighPriceButtonEl.classList.remove("selectedFilterButton");
+});
 
 // team functions
 const showEmployee = () => {
