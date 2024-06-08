@@ -8,3 +8,14 @@ $backgroundMainColor: #12372a;
 $colorLightGreen: #adbc9f;
 $colorLight: #fbfada;
 $colorWhite: #ffffff;
+
+// themes - ЕЩЕ ПОСМОТРЕТЬ
+$light-theme: (
+  background: #1f5d47,
+  color: $colorWhite,
+);
+
+$dark-theme: (
+  background: $backgroundMainColor,
+  color: $colorWhite,
+);
