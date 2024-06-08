@@ -29,6 +29,8 @@ body {
 }
 
 .header {
+  height: 20vh;
+
   .container {
     display: flex;
     flex-direction: column;
@@ -95,10 +97,10 @@ body {
   .container .sloganWrap {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    margin-bottom: 200px;
+    height: 80vh;
 
     @media (min-width: 1600px) {
       flex-direction: row;
@@ -182,7 +184,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
 
   .filterButton {
@@ -210,6 +212,17 @@ body {
   .selectedFilterButton {
     background-color: $colorLight;
     color: $backgroundMainColor;
+  }
+
+  .sortWrap {
+    margin-bottom: 50px;
+
+    i {
+      font-weight: 600;
+    }
+    span {
+      margin-right: 5px;
+    }
   }
 
   .menuItemsWrap {
@@ -429,6 +442,7 @@ body {
       position: absolute;
       bottom: 10%;
       left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 
@@ -467,6 +481,14 @@ body {
   .prevBtn:hover,
   .nextBtn:hover {
     transform: scale(1.2, 1.2);
+  }
+}
+
+.slider-nav {
+  margin-top: 20px;
+
+  i {
+    font-size: 16px;
   }
 }
 

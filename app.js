@@ -168,6 +168,8 @@ const prevBtnInSlider = document
 const nextBtnInSlider = document
   .querySelector(".ourRestaurantSection")
   .querySelector(".nextBtn");
+const sliderNav = document.querySelector(".slider-nav");
+const navPoints = sliderNav.querySelectorAll("i");
 
 let counterInSlider = 0;
 
@@ -192,6 +194,30 @@ window.addEventListener("DOMContentLoaded", () => {
   prevBtnInSlider.addEventListener("click", () => {
     counterInSlider--;
     carousel();
+  });
+
+  navPoints.forEach((navPoint, index) => {
+    navPoint.addEventListener("click", () => {
+      counterInSlider = index;
+
+      if (!navPoint.classList.contains("fa-solid")) {
+        navPoint.classList.add("fa-solid");
+
+        if (navPoint.classList.contains("fa-regular")) {
+          navPoint.classList.remove("fa-regular");
+        }
+      }
+
+      navPoints.forEach((btn) => {
+        if (btn !== navPoint) {
+          btn.className = "";
+          btn.classList.add("fa-circle");
+          btn.classList.add("fa-regular");
+        }
+      });
+
+      carousel();
+    });
   });
 });
 
@@ -236,6 +262,10 @@ const displayMenuButtons = () => {
 
   const filterButtons = document.querySelectorAll(".filterButton");
   filterButtons.forEach((button) => {
+    if (button.dataset.id === "all") {
+      button.classList.add("selectedFilterButton");
+    }
+
     button.addEventListener("click", (e) => {
       const category = e.currentTarget.dataset.id;
       const menuCategory = menu.filter((menuItem) => {
@@ -243,12 +273,23 @@ const displayMenuButtons = () => {
           return menuItem;
         }
       });
+
       if (category === "all") {
         displayMenu(menu);
       } else {
         displayMenu(menuCategory);
+
+        filterButtons.forEach((btn) => {
+          if (
+            btn !== button &&
+            btn.classList.contains("selectedFilterButton")
+          ) {
+            btn.classList.remove("selectedFilterButton");
+          }
+        });
       }
       e.currentTarget.classList.add("selectedFilterButton");
+      return menu;
     });
   });
 
@@ -263,6 +304,24 @@ const displayMenuButtons = () => {
     });
   });
 };
+
+//sort filter buttons
+const lowToHighPriceButtonEl = document.querySelector(".lowToHighPriceButton");
+lowToHighPriceButtonEl.addEventListener("click", (e) => {
+  const unsortedMenu = 1; // тут нужно получать неотсортированное, но отфильтрованное меню
+  const sortedMenu = menu.sort((a, b) => a.price - b.price);
+  displayMenu(sortedMenu);
+  e.currentTarget.classList.add("selectedFilterButton");
+  highToLowPriceButtonEl.classList.remove("selectedFilterButton");
+});
+
+const highToLowPriceButtonEl = document.querySelector(".highToLowPriceButton");
+highToLowPriceButtonEl.addEventListener("click", (e) => {
+  const sortedMenu = menu.sort((a, b) => b.price - a.price);
+  displayMenu(sortedMenu);
+  e.currentTarget.classList.add("selectedFilterButton");
+  lowToHighPriceButtonEl.classList.remove("selectedFilterButton");
+});
 
 // team functions
 const showEmployee = () => {
@@ -290,6 +349,7 @@ prevBtn.addEventListener("click", () => {
 });
 
 // slider functions
+// buttons prev and next in slider
 function carousel() {
   if (counterInSlider === slides.length) counterInSlider = 0;
   if (counterInSlider < 0) counterInSlider = slides.length - 1;
