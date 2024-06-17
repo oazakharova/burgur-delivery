@@ -1,5 +1,24 @@
 @import "_variables";
 
+:root {
+  @each $key, $value in $light-theme {
+    --#{$key}: #{$value};
+  }
+}
+
+.darkTheme {
+  @each $key, $value in $dark-theme {
+    --#{$key}: #{$value};
+  }
+}
+
+.themeToggleWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto 40px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -93,73 +112,73 @@ body {
   }
 }
 
-.main {
-  .container .sloganWrap {
+.sloganSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  // height: 80vh;
+
+  @media (min-width: 1600px) {
+    flex-direction: row;
+  }
+
+  .slogan {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-transform: uppercase;
-    height: 80vh;
+    text-align: center;
+    color: $colorLight;
+    font-family: $fontMainLexendZetta;
+    font-weight: 700;
+    letter-spacing: 0;
+    font-size: 45px;
+    margin-bottom: 40px;
 
     @media (min-width: 1600px) {
-      flex-direction: row;
+      font-size: 80px;
     }
 
-    .slogan {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      text-transform: uppercase;
-      text-align: center;
-      color: $colorLight;
-      font-family: $fontMainLexendZetta;
-      font-weight: 700;
-      letter-spacing: 0;
-      font-size: 45px;
-      margin-bottom: 40px;
-
-      @media (min-width: 1600px) {
-        font-size: 80px;
-      }
-
-      @media (min-width: 1600px) {
-        font-size: 100px;
-      }
+    @media (min-width: 1600px) {
+      font-size: 100px;
     }
-    .slogan div:first-child {
-      color: $colorLightGreen;
-      font-size: 20px;
+  }
+  .slogan div:first-child {
+    color: $colorLightGreen;
+    font-size: 20px;
 
-      @media (min-width: 768px) {
-        font-size: 40px;
-      }
-
-      @media (min-width: 1600px) {
-        font-size: 50px;
-      }
+    @media (min-width: 768px) {
+      font-size: 40px;
     }
 
-    .slogan div:last-child {
-      color: $colorLightGreen;
-      font-size: 10px;
-
-      @media (min-width: 768px) {
-        font-size: 20px;
-      }
-    }
-
-    .burgerImg {
-      display: block;
-      width: 100%;
-
-      @media (min-width: 768px) {
-        max-width: 1000px;
-      }
+    @media (min-width: 1600px) {
+      font-size: 50px;
     }
   }
 
+  .slogan div:last-child {
+    color: $colorLightGreen;
+    font-size: 10px;
+
+    @media (min-width: 768px) {
+      font-size: 20px;
+    }
+  }
+
+  .burgerImg {
+    display: block;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      max-width: 1000px;
+    }
+  }
+}
+
+.main {
   .section {
     display: flex;
     flex-direction: column;
@@ -529,4 +548,61 @@ body {
       margin-right: 10px;
     }
   }
+}
+
+// ПРЕДЛОЖЕНИЕ
+@import "./variables";
+
+:root {
+  @each $key, $value in $light-theme {
+    --#{$key}: #{$value};
+  }
+}
+
+.darkTheme {
+  @each $key, $value in $dark-theme {
+    --#{$key}: #{$value};
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--color);
+}
+
+.header,
+.footer {
+  background-color: var(--background);
+  color: var(--color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav .anchor {
+  color: var(--color);
+}
+
+.toggleThemeBtn {
+  background: none;
+  border: none;
+  color: var(--color);
+  cursor: pointer;
+}
+
+.menuItem {
+  background-color: var(--background);
+  color: var(--color);
+}
+
+.ourRestaurantSection,
+.ourTeamSection {
+  background-color: var(--background);
+  color: var(--color);
+}
+
+.footer .socialLink {
+  color: var(--color);
 }
